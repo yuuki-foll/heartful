@@ -4,14 +4,32 @@ import (
 	"log"
 	"net/http"
 
-	"github.com/gin-gonic/gin"
-	/* 	"context"
+	"context"
 
-		firebase "firebase.google.com/go"
-		"google.golang.org/api/option" */
+	"github.com/gin-gonic/gin"
+
+	firebase "firebase.google.com/go"
+	// "firebase.google.com/go/auth"
+
+	"google.golang.org/api/option"
 )
 
+func setup_firebase() {
+	ctx := context.Background()
+	opt := option.WithCredentialsFile("path/to/heartful-89dec-firebase-adminsdk-m23dq-cf25613a28.json")
+	app, err := firebase.NewApp(ctx, nil, opt)
+	if err != nil {
+		log.Fatalln(err)
+	}
+	client, err := app.Firestore(ctx)
+	if err != nil {
+		log.Fatalln(err)
+	}
+	defer client.Close()
+}
+
 func main() {
+
 	//サーバを準備
 	server := gin.Default()
 
