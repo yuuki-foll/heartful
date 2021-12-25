@@ -15,3 +15,6 @@
 - フロントエンド:HTML, CSS, JavaScript(Vue.js, React)
 - データベース：Firebase
 - ホスト：Heroku
+
+## 反省点・懸念点
+- main.goはsrcフォルダの下に置いた方がよかったかも
