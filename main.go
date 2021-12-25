@@ -7,9 +7,8 @@ import (
 	"github.com/gin-gonic/gin"
 	/* 	"context"
 
-		firebase "firebase.google.com/go"
-		"google.golang.org/api/option" */
-)
+	firebase "firebase.google.com/go"
+	"google.golang.org/api/option" */)
 
 func main() {
 	//サーバを準備
@@ -35,9 +34,14 @@ func main() {
 		})
 	})
 
+	// 褒めるページに遷移
+	server.GET("/praise", func(ctx *gin.Context) {
+		ctx.Redirect(302, "/templates/praise.tmpl")
+	})
+
 	/* 	// Use the application default credentials
-		ctx := context.Background()
-		sa := option.WithCredentialsFile("path/to/serviceAccount.json") */
+	ctx := context.Background()
+	sa := option.WithCredentialsFile("path/to/serviceAccount.json") */
 
 	// サーバーを起動
 	err := server.Run("127.0.0.1:8080")
