@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"log"
 	"net/http"
 
@@ -19,7 +20,7 @@ type Praises struct {
 	comment string
 }
 
-func setup_firebase() *firestore.Client{
+func setup_firebase() (context.Context,*firestore.Client){
 	ctx := context.Background()
 	opt := option.WithCredentialsFile("path/to/heartful-89dec-firebase-adminsdk-m23dq-cf25613a28.json")
 	app, err := firebase.NewApp(ctx, nil, opt)
@@ -30,12 +31,11 @@ func setup_firebase() *firestore.Client{
 	if err != nil {
 		log.Fatalln(err)
 	}
-	defer client.Close()
-	return client
+	return ctx, client
 }
 
-func creat_praises(comment string, career string, client *firestore.Client) {
-	_, _, err := client.Collection(career).Add(context.Background(), map[string]interface{}{
+func creat_praises(comment string, career string, ctx context.Context,client *firestore.Client) {
+	_, _, err := client.Collection(career).Add(ctx, map[string]interface{}{
 		"comment": comment,
 	})
 	if err != nil {
@@ -45,7 +45,7 @@ func creat_praises(comment string, career string, client *firestore.Client) {
 
 
 func main() {
-	client := setup_firebase()
+	c, client := setup_firebase()
 
 	//サーバを準備
 	server := gin.Default()
@@ -75,10 +75,12 @@ func main() {
 		ctx.Redirect(302, "/templates/praise.tmpl")
 	})
 
-	server.POST("/register-praises", func(ctx *gin.Context) {
-		comment := ctx.Query("praise_comment")
-		career := ctx.Query("career")
-		creat_praises(comment, career, client)
+	server.POST("/register_praises", func(ctx *gin.Context) {
+		comment := ctx.PostForm("praise_comment")
+		career := ctx.PostForm("career")
+		fmt.Println(comment)
+		fmt.Println(career)
+		creat_praises(comment, career, c,client)
 	})
 	// 褒めるページに遷移
 	server.GET("/comment_list", func(ctx *gin.Context) {
@@ -94,4 +96,5 @@ func main() {
 	if err != nil {
 		log.Fatal("サーバー起動に失敗", err)
 	}
+	defer client.Close()
 }
