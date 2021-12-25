@@ -11,7 +11,7 @@
 2. 自己肯定感を高めて喜ぶ
 
 ## システム構成（予定）
-バックエンド：go(gin)
-フロントエンド:HTML, CSS, JavaScript(Vue.js, React)
-データベース：Firebase
-ホスト：Heroku
+- バックエンド：go(gin)
+- フロントエンド:HTML, CSS, JavaScript(Vue.js, React)
+- データベース：Firebase
+- ホスト：Heroku
