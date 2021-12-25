@@ -79,7 +79,10 @@ func main() {
 		comment := ctx.Query("praise_comment")
 		career := ctx.Query("career")
 		creat_praises(comment, career, client)
-
+	})
+	// 褒めるページに遷移
+	server.GET("/comment_list", func(ctx *gin.Context) {
+		ctx.Redirect(302, "/templates/comment_list.tmpl")
 	})
 
 	/* 	// Use the application default credentials
