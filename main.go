@@ -29,6 +29,7 @@ func setup_firebase() {
 }
 
 func main() {
+	setup_firebase()
 
 	//サーバを準備
 	server := gin.Default()
@@ -53,9 +54,14 @@ func main() {
 		})
 	})
 
+	// 褒めるページに遷移
+	server.GET("/praise", func(ctx *gin.Context) {
+		ctx.Redirect(302, "/templates/praise.tmpl")
+	})
+
 	/* 	// Use the application default credentials
-		ctx := context.Background()
-		sa := option.WithCredentialsFile("path/to/serviceAccount.json") */
+	ctx := context.Background()
+	sa := option.WithCredentialsFile("path/to/serviceAccount.json") */
 
 	// サーバーを起動
 	err := server.Run("127.0.0.1:8080")
