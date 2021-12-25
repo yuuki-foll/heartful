@@ -5,10 +5,10 @@ import (
 	"net/http"
 
 	"github.com/gin-gonic/gin"
-	"context"
+	/* 	"context"
 
-	firebase "firebase.google.com/go"
-	"google.golang.org/api/option"
+		firebase "firebase.google.com/go"
+		"google.golang.org/api/option" */
 )
 
 func main() {
@@ -35,9 +35,9 @@ func main() {
 		})
 	})
 
-	// Use the application default credentials
-	ctx := context.Background()
-	sa := option.WithCredentialsFile("path/to/serviceAccount.json")
+	/* 	// Use the application default credentials
+		ctx := context.Background()
+		sa := option.WithCredentialsFile("path/to/serviceAccount.json") */
 
 	// サーバーを起動
 	err := server.Run("127.0.0.1:8080")
