@@ -59,6 +59,11 @@ func main() {
 		ctx.Redirect(302, "/templates/praise.tmpl")
 	})
 
+	// 褒めるページに遷移
+	server.GET("/comment_list", func(ctx *gin.Context) {
+		ctx.Redirect(302, "/templates/comment_list.tmpl")
+	})
+
 	/* 	// Use the application default credentials
 	ctx := context.Background()
 	sa := option.WithCredentialsFile("path/to/serviceAccount.json") */
