@@ -107,7 +107,7 @@ body {
 
 /* ハートのフェードイン */
 .fadeUp {
-  animation: fadeUpAnime 2s linear 2s 100 normal;
+  animation: fadeUpAnime 3s linear 2s 50 normal;
 }
 @keyframes fadeUpAnime {
   0% {
