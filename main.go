@@ -21,7 +21,7 @@ type Praises struct {
 	comment string
 }
 
-func setup_firebase() (context.Context,*firestore.Client){
+func setup_firebase() (context.Context, *firestore.Client) {
 	ctx := context.Background()
 	opt := option.WithCredentialsFile("path/to/heartful-89dec-firebase-adminsdk-m23dq-cf25613a28.json")
 	app, err := firebase.NewApp(ctx, nil, opt)
@@ -35,7 +35,7 @@ func setup_firebase() (context.Context,*firestore.Client){
 	return ctx, client
 }
 
-func creat_praises(comment string, career string, ctx context.Context,client *firestore.Client) {
+func creat_praises(comment string, career string, ctx context.Context, client *firestore.Client) {
 	_, _, err := client.Collection(career).Add(ctx, map[string]interface{}{
 		"comment": comment,
 	})
@@ -45,9 +45,9 @@ func creat_praises(comment string, career string, ctx context.Context,client *fi
 }
 
 // 誉め言葉をfirestoreから取得する
-func read_praises(career string, ctx context.Context, client *firestore.Client) []string{
+func read_praises(career string, ctx context.Context, client *firestore.Client) []string {
 	iter := client.Collection(career).Documents(ctx)
-	praises := make([]string,0)
+	praises := make([]string, 0)
 	for {
 		doc, err := iter.Next()
 		if err == iterator.Done {
@@ -64,7 +64,6 @@ func read_praises(career string, ctx context.Context, client *firestore.Client) 
 	fmt.Println(praises)
 	return praises
 }
-
 
 func main() {
 	c, client := setup_firebase()
@@ -110,22 +109,17 @@ func main() {
 		career := ctx.PostForm("career")
 		fmt.Println(comment)
 		fmt.Println(career)
-		creat_praises(comment, career, c,client)
+		creat_praises(comment, career, c, client)
 		ctx.Redirect(302, "/templates/enter.tmpl")
 	})
 
 	// 誉め言葉をjsonで送る
-	server.POST("/get_praises", func(ctx *gin.Context){
+	server.POST("/get_praises", func(ctx *gin.Context) {
 		career := ctx.PostForm("career")
 		praises := read_praises(career, c, client)
 		ctx.JSON(200, gin.H{
 			"comment": praises,
 		})
-	})
-
-	// 褒めるページに遷移
-	server.GET("/comment_list", func(ctx *gin.Context) {
-		ctx.Redirect(302, "/templates/comment_list.tmpl")
 	})
 
 	/* 	// Use the application default credentials
