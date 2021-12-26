@@ -13,6 +13,7 @@ import (
 	// "firebase.google.com/go/auth"
 
 	"cloud.google.com/go/firestore"
+	"google.golang.org/api/iterator"
 	"google.golang.org/api/option"
 )
 
@@ -41,6 +42,27 @@ func creat_praises(comment string, career string, ctx context.Context,client *fi
 	if err != nil {
 		log.Fatalln(err)
 	}
+}
+
+// 誉め言葉をfirestoreから取得する
+func read_praises(career string, ctx context.Context, client *firestore.Client) []string{
+	iter := client.Collection(career).Documents(ctx)
+	praises := make([]string,0)
+	for {
+		doc, err := iter.Next()
+		if err == iterator.Done {
+			break
+		}
+		if err != nil {
+			log.Fatalln(err)
+		}
+		p_map := doc.Data()
+		comment := p_map["comment"].(string)
+		praises = append(praises, comment)
+		// fmt.Println(doc.Data())
+	}
+	fmt.Println(praises)
+	return praises
 }
 
 
@@ -75,6 +97,14 @@ func main() {
 		ctx.Redirect(302, "/templates/praise.tmpl")
 	})
 
+	// 褒められるページに遷移
+	server.GET("/user_info", func(ctx *gin.Context) {
+		ctx.Redirect(302, "/templates/praise_get.tmpl")
+	})
+
+	server.GET("/happy", func(ctx *gin.Context) {
+		ctx.Redirect(302, "/templates/happy.tmpl")
+	})
 	server.POST("/register_praises", func(ctx *gin.Context) {
 		comment := ctx.PostForm("praise_comment")
 		career := ctx.PostForm("career")
@@ -83,6 +113,16 @@ func main() {
 		creat_praises(comment, career, c,client)
 		ctx.Redirect(302, "/templates/enter.tmpl")
 	})
+
+	// 誉め言葉をjsonで送る
+	server.POST("/get_praises", func(ctx *gin.Context){
+		career := ctx.PostForm("career")
+		praises := read_praises(career, c, client)
+		ctx.JSON(200, gin.H{
+			"comment": praises,
+		})
+	})
+
 	// 褒めるページに遷移
 	server.GET("/comment_list", func(ctx *gin.Context) {
 		ctx.Redirect(302, "/templates/comment_list.tmpl")
