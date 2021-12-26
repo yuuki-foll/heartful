@@ -34,7 +34,7 @@ body {
   /* border: solid 1px black; */
   position: absolute;
   height: 100px;
-  width: 100vw;
+  width: 95vw;
   text-align: center;
   padding: 100px 0;
   font-size: 100px;
@@ -53,21 +53,21 @@ body {
 .text {
   position: absolute;
   text-align: center;
-  width: 100vw;
+  width: 95vw;
   top: 60vh;
 }
 
 .input {
   position: absolute;
   text-align: center;
-  width: 100vw;
+  width: 95vw;
   top: 70vh;
 }
 
 .link {
   position: relative;
   text-align: center;
-  width: 100vw;
+  width: 95vw;
   top: 80vh;
 }
 .link1 {
@@ -86,7 +86,7 @@ body {
   position: absolute;
   display: flex;
   height: calc(100vh - 100px);
-  width: 100;
+  width: 95vw;
   flex-wrap: wrap;
   z-index: -1;
 }
@@ -107,16 +107,19 @@ body {
 
 /* ハートのフェードイン */
 .fadeUp {
-  animation: fadeUpAnime 2s ease 2s 1 normal;
+  animation: fadeUpAnime 2s linear 2s 100 normal;
 }
 @keyframes fadeUpAnime {
-  from {
+  0% {
     opacity: 0;
     transform: translateY(100px);
   }
-
-  to {
+  50% {
     opacity: 0.7;
     transform: translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-100px);
   }
 }
