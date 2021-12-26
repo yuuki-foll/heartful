@@ -81,6 +81,7 @@ func main() {
 		fmt.Println(comment)
 		fmt.Println(career)
 		creat_praises(comment, career, c,client)
+		ctx.Redirect(302, "/templates/enter.tmpl")
 	})
 	// 褒めるページに遷移
 	server.GET("/comment_list", func(ctx *gin.Context) {
