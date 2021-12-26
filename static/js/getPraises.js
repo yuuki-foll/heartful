@@ -1,8 +1,17 @@
-window.addEventListener('DOMContentLoaded', () => {
+let display = true;
+window.addEventListener('click', () => {
     const btn_submit = document.getElementById("btn-submit");
 
     const formdata = new FormData()
-
+    const radio = document.querySelectorAll(".radiobutton");
+    radio.forEach(function(target) {
+        target.addEventListener('click', () => {
+            if (display) {
+                document.getElementById("space-submit").innerHTML='<input id="btn-submit" type="submit" value="褒められにいく" class="submit">'
+                display = false
+            }
+        })
+    })
     btn_submit.addEventListener('click', (e)=> {
         e.preventDefault();
 
