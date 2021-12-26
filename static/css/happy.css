@@ -1,0 +1,26 @@
+header {
+  /* border: solid 1px rgb(0, 255, 106); */
+  height: 50px;
+  width: 100%;
+  padding: 0 0;
+  margin: 0 0;
+  background-color: #ff00aa;
+  color: white;
+}
+header .headline {
+  /* border: solid 1px rgb(119, 0, 255); */
+  line-height: 50px;
+  float: left;
+  margin: 0 0;
+  font-size: 30px;
+  margin-left: 100px;
+}
+
+.logo_button {
+  border: 0px;
+  background-color: #ff00aa;
+  color: white;
+  height: 50px;
+  font-size: 30px;
+  font-weight: bold;
+}
