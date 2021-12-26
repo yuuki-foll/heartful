@@ -5,26 +5,26 @@
     <style type="text/css" media="screen">
       @import url("/static/css/praise.css");
     </style>
-    <title>ほめるサイト</title>
+    <title>Heartful</title>
   </head>
   <meta charset="utf-8" />
   <body>
     <!-- ヘッダー -->
     <header>
       <h1 class="headline">
-        <a>ほめるサイト</a>
+        <a>Heartful</a>
       </h1>
     </header>
     <!-- ヘッダー終わり -->
-    <h1>ここで褒めます</h1>
-    <p>職業を選んでください<br></p>
-    <form action="/register_praises" method="POST">
-      <div>
-      <input type="radio" class="radiobutton" name="career" value="engineer"> <label for="engineer">エンジニア</label>
-      <input type="radio" class="radiobutton" name="career" value="student"> <label for="student">学生</label>
-      <input type="radio" class="radiobutton" name="career" value="other"> <label for="other">その他</label>
+    <h1 class="message">他人を褒めてみましょう!!</h1>
+    <p class="text1">職業を選んでください!!<br></p>
+    <form action="/register_praises" method="POST" class="carrer_choise">
+      <div class="radiobuttons">
+        <input type="radio" class="radiobutton" name="career" value="engineer" id="engineer"> <label for="engineer">エンジニア</label>
+        <input type="radio" class="radiobutton" name="career" value="student" id="student"> <label for="student">学生</label>
+        <input type="radio" class="radiobutton" name="career" value="other" id="other"> <label for="other">その他</label>
       </div>
-      <input type="text" size="70" maxLength="50"  name="praise_comment" value="コメントを入力してください（最大50文字） 例:さんって素敵ですね!" />
+      <input type="text" size="70" maxLength="50"  name="praise_comment" placeholder="コメントを入力してください（最大50文字） 例:さんって素敵ですね!" />
       <p><input type="submit" value="コメントを送る!"></p>
     </form>
   </body>
