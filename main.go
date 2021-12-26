@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"log"
 	"net/http"
-
+	"math/rand"
 	"context"
 
 	"github.com/gin-gonic/gin"
@@ -44,6 +44,32 @@ func creat_praises(comment string, career string, ctx context.Context, client *f
 	}
 }
 
+func random_pick(array []string) []string {
+	praises := make([]string, 0)
+	idx_slice := make([]int, 0)
+	for {
+		idx := rand.Intn(len(array))
+		add := true
+		for _, v := range idx_slice {
+			if idx == v {
+				add = false
+			}
+		}
+		if add {
+			idx_slice = append(idx_slice, idx)
+		}
+
+		if len(idx_slice) == 10 {
+			break
+		}
+	}
+
+	for _, v := range idx_slice {
+		praises = append(praises, array[v])
+	}
+	return praises
+}
+
 // 誉め言葉をfirestoreから取得する
 func read_praises(career string, ctx context.Context, client *firestore.Client) []string {
 	iter := client.Collection(career).Documents(ctx)
@@ -59,6 +85,9 @@ func read_praises(career string, ctx context.Context, client *firestore.Client) 
 		p_map := doc.Data()
 		comment := p_map["comment"].(string)
 		praises = append(praises, comment)
+		if len(praises) > 10 {
+			praises = random_pick(praises)
+		}
 		// fmt.Println(doc.Data())
 	}
 	fmt.Println(praises)
