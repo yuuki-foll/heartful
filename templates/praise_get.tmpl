@@ -3,6 +3,9 @@
   <head>
     <meta charset="UTF-8" />
     <title>データ取得確認用</title>
+    <style type="text/css" media="screen">
+      @import url("/static/css/praise_get.css");
+    </style>
     <script type="text/javascript" src="/static/js/getPraises.js"></script>
   </head>
   <meta charset="utf-8" />
@@ -14,14 +17,12 @@
       </h1>
     </header>
     <!-- ヘッダー終わり -->
-    <h1 class="title_logo">Heartful</h1>
-    <h1>名前を入力してください</h1>
-    <p>職業を選んでください<br></p>
-    <form action="" method="GET">
-      <div>
-      <input type="radio" class="radiobutton" name="career" value="engineer"> <label for="engineer">エンジニア</label>
-      <input type="radio" class="radiobutton" name="career" value="student"> <label for="student">学生</label>
-      <input type="radio" class="radiobutton" name="career" value="other"> <label for="other">その他</label>
+    <p class="text1">職業を選んでください<br></p>
+    <form action="" method="GET" class="carreer_choice">
+      <div class="radiobuttons">
+      <input type="radio" class="radiobutton" name="career" value="engineer" id="engineer"> <label for="engineer">エンジニア</label>
+      <input type="radio" class="radiobutton" name="career" value="student" id="student"> <label for="student">学生</label>
+      <input type="radio" class="radiobutton" name="career" value="other" id="other"> <label for="other">その他</label>
       </div>
       <p><input id="btn-submit" type="submit" value="褒められる"></p>
     </form>
