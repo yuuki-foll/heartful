@@ -82,7 +82,7 @@ body {
 
 /* ハート関連 */
 .randomHeart {
-  border: solid 1px rgb(255, 0, 0);
+  /* border: solid 1px rgb(255, 0, 0); */
   position: absolute;
   display: flex;
   height: calc(100vh - 100px);

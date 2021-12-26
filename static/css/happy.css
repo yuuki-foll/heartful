@@ -1,54 +1,62 @@
 header {
-    height: 50px;
-    width: 100%;
-    padding: 0 0;
-    margin: 0 0;
-    background-color: #ff00aa;
-    color: white;
+  height: 50px;
+  width: 100%;
+  padding: 0 0;
+  margin: 0 0;
+  background-color: #ff00aa;
+  color: white;
 }
 header .headline {
-    line-height: 50px;
-    float: left;
-    margin: 0 0;
-    font-size: 30px;
-    margin-left: 100px;
+  line-height: 50px;
+  float: left;
+  margin: 0 0;
+  font-size: 30px;
+  margin-left: 100px;
+}
+
+.logo_button {
+  border: 0px;
+  background-color: #ff00aa;
+  color: white;
+  height: 50px;
+  font-size: 30px;
+  font-weight: bold;
 }
 
 body {
-    position: relative;
+  position: relative;
 }
 
 .heart-comment {
-    position: absolute;
-    display: flex;
-    height: calc(100vh - 100px);
-    width: 100;
-    flex-wrap: wrap;
-    z-index: -1;
+  position: absolute;
+  display: flex;
+  height: calc(100vh - 100px);
+  width: 100;
+  flex-wrap: wrap;
+  z-index: -1;
 }
 .comment {
-    position: relative;
+  position: relative;
 }
 .heart {
-    padding: 0;
-    margin: 0 0 0 0;
-    box-sizing: border-box;
-    list-style: none;
-    top: 0px;
-    left: 0px;
-    height: 100px;
-    pointer-events: none;
+  padding: 0;
+  margin: 0 0 0 0;
+  box-sizing: border-box;
+  list-style: none;
+  top: 0px;
+  left: 0px;
+  height: 100px;
+  pointer-events: none;
 }
 .comment p {
-    position: absolute;
-    padding: 0 40px 0 40px;
-    margin: 0 0 0 0;
-    box-sizing: border-box;
-    list-style: none;
-    top: 150px;
-    left: 0px;
-    height: 100px;
-    pointer-events: none;
-    text-align: center;
-
+  position: absolute;
+  padding: 0 40px 0 40px;
+  margin: 0 0 0 0;
+  box-sizing: border-box;
+  list-style: none;
+  top: 150px;
+  left: 0px;
+  height: 100px;
+  pointer-events: none;
+  text-align: center;
 }
