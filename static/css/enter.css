@@ -16,6 +16,15 @@ header .headline {
   margin-left: 100px;
 }
 
+.logo_button {
+  border: 0px;
+  background-color: #ff00aa;
+  color: white;
+  height: 50px;
+  font-size: 30px;
+  font-weight: bold;
+}
+
 body {
   position: relative;
 }
