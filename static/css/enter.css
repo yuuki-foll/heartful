@@ -1,11 +1,14 @@
 header {
+  /* border: solid 1px rgb(0, 255, 106); */
   height: 50px;
   width: 100%;
-  padding: 15px 0;
+  padding: 0 0;
+  margin: 0 0;
   background-color: #ff00aa;
   color: white;
 }
 header .headline {
+  /* border: solid 1px rgb(119, 0, 255); */
   line-height: 50px;
   float: left;
   margin: 0 0;
@@ -13,11 +16,18 @@ header .headline {
   margin-left: 100px;
 }
 
+body {
+  position: relative;
+}
+
 .title_logo {
-  border: solid 1px black;
+  position: static;
+  /* border: solid 1px black; */
+  position: absolute;
   height: 100px;
+  width: 100vw;
   text-align: center;
-  padding: 100px 200px;
+  padding: 100px 0;
   font-size: 100px;
   color: #ff00aa;
   animation: fadeIn 10s cubic-bezier(0.33, 1, 0.68, 1) 1 forwards;
@@ -28,5 +38,76 @@ header .headline {
   }
   100% {
     opacity: 1;
+  }
+}
+
+.text {
+  position: absolute;
+  text-align: center;
+  width: 100vw;
+  top: 60vh;
+}
+
+.input {
+  position: absolute;
+  text-align: center;
+  width: 100vw;
+  top: 70vh;
+}
+
+.link {
+  position: relative;
+  text-align: center;
+  width: 100vw;
+  top: 80vh;
+}
+.link1 {
+  position: absolute;
+  left: 20%;
+}
+
+.link2 {
+  position: absolute;
+  left: 60%;
+}
+
+/* ハート関連 */
+.randomHeart {
+  border: solid 1px rgb(255, 0, 0);
+  position: absolute;
+  display: flex;
+  height: calc(100vh - 100px);
+  width: 100;
+  flex-wrap: wrap;
+  z-index: -1;
+}
+.heart {
+  padding: 0;
+  margin: 0 0 0 0;
+  box-sizing: border-box;
+  list-style: none;
+  top: 0px;
+  left: 0px;
+  height: 100px;
+  pointer-events: none;
+}
+
+.heart {
+  opacity: 0;
+}
+
+/* ハートのフェードイン */
+.fadeUp {
+  animation: fadeUpAnime 2s ease 2s 1 normal;
+}
+@keyframes fadeUpAnime {
+  from {
+    opacity: 0;
+    transform: translateY(100px);
+  }
+
+  to {
+    opacity: 0.7;
+    transform: translateY(0);
   }
 }
