@@ -28,5 +28,3 @@ for (let i=0; i < 10; i++) {
         heart_comment.insertAdjacentHTML('afterbegin', '<div class="comment"><li class="heart"><img src="/static/images/heart_pink.png" width="350px" height="350px"></li></div>')
     }
 }
-console.log(commentList)
-document.getElementById("comment-list").innerHTML = commentList.join('');

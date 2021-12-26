@@ -46,11 +46,11 @@ body {
   font-size: 20px;
 }
 .radiobuttons {
-  border: solid 1px rgb(0, 255, 170);
-  height: 70%;
-  width: 70%;
+  border: solid 3px rgb(0, 255, 170);
+  height: 90%;
+  width: 50%;
   margin: 0px 200px 0px 20vw;
-  columns: 3 auto;
+  columns: 3;
 }
 .radiobuttons input {
   display: none;
@@ -60,22 +60,22 @@ body {
   display: block;
   background: #ffffff;
   padding: 0px;
-  margin: 0px 0px 0px -2px;
+  margin: 0px 0px 70px 30px;
   float: left;
-  width: 300px;
-  height: 300px;
+  width: 200px;
+  height: 200px;
   padding-left: 5px;
   color: #ff00bf;
   text-align: center;
   line-height: 35px;
   cursor: pointer;
-  border: 2px solid #3f3636;
+  border: 6px solid #000000;
   border-radius: 0px;
 }
 
 .radiobuttons input[type="radio"]:checked + label {
   background-color: #ff00f2;
-  color: #ffffff;
+  color: #000000;
 }
 
 /* .icon_area {

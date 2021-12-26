@@ -9,7 +9,6 @@ window.addEventListener('DOMContentLoaded', () => {
         const career = document.querySelector('input[name=career]:checked');
         formdata.append('career', career.value);
         
-        
         console.log(formdata);
         // formdata.append('career', career.value);
         const url = "http://127.0.0.1:8080/get_praises"

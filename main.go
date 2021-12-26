@@ -4,7 +4,6 @@ import (
 	"fmt"
 	"log"
 	"net/http"
-	"os"
 
 	"context"
 
@@ -127,13 +126,8 @@ func main() {
 	ctx := context.Background()
 	sa := option.WithCredentialsFile("path/to/serviceAccount.json") */
 
-	port := os.Getenv("PORT")
-	if port == "" {
-		port = "8080"
-	}
-
 	// サーバーを起動
-	err := server.Run(":" + port)
+	err := server.Run("127.0.0.1:8080")
 	if err != nil {
 		log.Fatal("サーバー起動に失敗", err)
 	}
