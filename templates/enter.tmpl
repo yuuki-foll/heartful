@@ -2,18 +2,23 @@
 <html>
   <head>
     <meta charset="UTF-8" />
-    <title>ほめるサイト</title>
+    <style type="text/css" media="screen">
+      @import url("/static/css/enter.css");
+    </style>
+    <title>Heartful</title>
   </head>
   <meta charset="utf-8" />
   <body>
     <!-- ヘッダー -->
     <header>
       <h1 class="headline">
-        <a>ほめるサイト</a>
+        <a>Heartful</a>
       </h1>
     </header>
     <!-- ヘッダー終わり -->
+    <h1 class="title_logo">Heartful</h1>
     <h1>名前を入力してください</h1>
+
     <form action="/hello" method="POST">
       <input type="text" name="name" value="クジラ" />
       <input type="submit" value="送信" />

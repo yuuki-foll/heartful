@@ -1,0 +1,32 @@
+header {
+  height: 50px;
+  width: 100%;
+  padding: 15px 0;
+  background-color: #ff00aa;
+  color: white;
+}
+header .headline {
+  line-height: 50px;
+  float: left;
+  margin: 0 0;
+  font-size: 30px;
+  margin-left: 100px;
+}
+
+.title_logo {
+  border: solid 1px black;
+  height: 100px;
+  text-align: center;
+  padding: 100px 200px;
+  font-size: 100px;
+  color: #ff00aa;
+  animation: fadeIn 10s cubic-bezier(0.33, 1, 0.68, 1) 1 forwards;
+}
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
