@@ -23,10 +23,10 @@ var heart_comment = document.getElementById("heart-comment")
 for (let i=0; i < 10; i++) {
     if (i < commentArray.length) {
         if (Math.floor(Math.random()*2)=== 0) {
-            heart_comment.insertAdjacentHTML('afterbegin', '<div class="comment"><li class="heart"><img src="/static/images/heart_pink.png" width="350px" height="350px"><p>'+user_name+commentArray[i]+'</p></li></div>')
+            heart_comment.insertAdjacentHTML('afterbegin', '<div class="comment"><li class="heart"><img src="/static/images/heart_pink.png" width="350px" height="350px"><p class="praise-sentence">'+user_name+commentArray[i]+'</p></li></div>')
         }
         else {
-            heart_comment.insertAdjacentHTML('afterbegin', '<div class="comment"><li class="heart"><img src="/static/images/heart_red.png" width="350px" height="350px"><p>'+user_name+commentArray[i]+'</p></li></div>')
+            heart_comment.insertAdjacentHTML('afterbegin', '<div class="comment"><li class="heart"><img src="/static/images/heart_red.png" width="350px" height="350px"><p class="praise-sentence">'+user_name+commentArray[i]+'</p></li></div>')
         }
     }
     else {
