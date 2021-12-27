@@ -63,7 +63,14 @@ body {
   width: 95vw;
   top: 70vh;
 }
-
+.name-button {
+  background-color: #ff00aa;
+  color: #ffffff;
+  border-radius: 20px;
+}
+.name-button:hover{
+  background-color: #a0006b;
+}
 .link {
   position: relative;
   text-align: center;
