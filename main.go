@@ -1,11 +1,11 @@
 package main
 
 import (
+	"context"
 	"fmt"
 	"log"
-	"net/http"
 	"math/rand"
-	"context"
+	"net/http"
 
 	"github.com/gin-gonic/gin"
 
@@ -82,6 +82,7 @@ func read_praises(career string, ctx context.Context, client *firestore.Client) 
 		if err != nil {
 			log.Fatalln(err)
 		}
+		fmt.Println(doc)
 		p_map := doc.Data()
 		comment := p_map["comment"].(string)
 		praises = append(praises, comment)
