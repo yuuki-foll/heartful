@@ -37,7 +37,7 @@ body {
   font-size: 30px;
 }
 .carreer_choice {
-  border: solid 1px rgb(217, 0, 255);
+  /* border: solid 1px rgb(217, 0, 255); */
   position: absolute;
   top: 20vh;
   width: 100vw;
@@ -46,7 +46,7 @@ body {
   font-size: 20px;
 }
 .radiobuttons {
-  border: solid 3px rgb(0, 255, 170);
+  /* border: solid 3px rgb(0, 255, 170); */
   height: 90%;
   width: 50%;
   margin: 0px 200px 0px 20vw;
@@ -85,21 +85,25 @@ body {
 }
 */
 .carrer_icon {
-  border: solid 1px rgb(0, 255, 170);
+  /* border: solid 1px rgb(0, 255, 170); */
   width: 200px;
   height: 200px;
 }
 .submit {
   animation: fadeIn 3s ease 0s 1 normal;
   width: 200px;
-  height:50px;
+  height: 50px;
   color: #ffffff;
   background-color: #ff00aa;
   border-radius: 20px;
 }
 @keyframes fadeIn {
-  0% {opacity: 0;}
-  100% {opacity: 1;}
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 .submit:hover {
   background-color: #a0006b;

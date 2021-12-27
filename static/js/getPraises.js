@@ -7,12 +7,16 @@ window.addEventListener('click', () => {
     radio.forEach(function(target) {
         target.addEventListener('click', () => {
             if (display) {
-                document.getElementById("space-submit").innerHTML='<input id="btn-submit" type="submit" value="褒められにいく" class="submit">'
+                document.getElementById("space-submit").innerHTML='<input id="btn-submit" type="submit" value="褒められにいく" class="submit" onclick="ring();">'
                 display = false
             }
         })
     })
-    btn_submit.addEventListener('click', (e)=> {
+    btn_submit.addEventListener('click', (e) => {
+        var audio = new Audio("/static/se/decide.mp3");
+        audio.volume = 0.2;
+        audio.play();
+
         e.preventDefault();
 
         const career = document.querySelector('input[name=career]:checked');
