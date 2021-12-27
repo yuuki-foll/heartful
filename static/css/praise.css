@@ -108,13 +108,29 @@ body {
 }
 
 .input_form {
+  animation: fadeIn 3s ease 0s 1 normal;
   position: absolute;
-  top: 60vh;
+  top: 62vh;
   left: 40vw;
 }
 
 .submit_button {
+  animation: fadeIn 3s ease 0s 1 normal;
   position: absolute;
   top: 60vh;
   left: 30vw;
+  width: 200px;
+  height: 50px;
+}
+.submit_button {
+  color: #ffffff;
+  background-color: #ff00aa;
+  border-radius: 20px;
+}
+@keyframes fadeIn {
+  0% {opacity: 0;}
+  100% {opacity: 1;}
+}
+.submit_button:hover {
+  background-color: #a0006b;
 }
