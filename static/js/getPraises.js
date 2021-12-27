@@ -7,7 +7,7 @@ window.addEventListener('click', () => {
     radio.forEach(function(target) {
         target.addEventListener('click', () => {
             if (display) {
-                document.getElementById("space-submit").innerHTML='<input id="btn-submit" type="submit" value="褒められにいく" class="submit" onclick="ring();">'
+                document.getElementById("space-submit").innerHTML='<input id="btn-submit" type="submit" value="褒められにいく" class="submit">'
                 display = false
             }
         })
@@ -21,7 +21,7 @@ window.addEventListener('click', () => {
 
         const career = document.querySelector('input[name=career]:checked');
         formdata.append('career', career.value);
-        
+        console.log(career.value)
         console.log(formdata);
         // formdata.append('career', career.value);
         const url = "http://127.0.0.1:8080/get_praises"
